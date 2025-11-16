@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eilam Cohen - CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .profile-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            flex-shrink: 0;
+        }
+
+        .header-content {
+            flex: 1;
+            text-align: left;
+        }
+
+        .header h1 {
+            font-size: 2.8em;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .header .contact {
+            font-size: 1em;
+            opacity: 0.95;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+        }
+
+        .contact a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact a:hover {
+            opacity: 0.8;
+        }
+
+        .content {
+            padding: 50px;
+        }
+
+        .section {
+            margin-bottom: 45px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            font-weight: 600;
+        }
+
+        .job, .education-item {
+            margin-bottom: 30px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .job:before, .education-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .job-period {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .job-company {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .job-description {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .job-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .job-description li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .job-description li:before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-item {
+            padding: 15px 20px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+
+        .skill-label {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .skill-value {
+            color: #555;
+        }
+
+        .education-degree {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+
+        .education-school {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .education-details {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .volunteer-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #764ba2;
+        }
+
+        .volunteer-period {
+            color: #764ba2;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .volunteer-description {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+
+            .header {
+                padding: 40px 30px;
+            }
+
+            .content {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 20px;
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .header-content {
+                text-align: center;
+            }
+
+            .header .contact {
+                align-items: center;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .content {
+                padding: 30px;
+            }
+
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .job-period {
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="C:\Users\user\Downloads\Eilam profile picture.jpeg" alt="Eilam Cohen" class="profile-photo">
+            <div class="header-content">
+                <h1>EILAM COHEN</h1>
+                <div class="contact">
+                    <span>📱 +972-52-890-8006</span>
+                    <a href="https://www.linkedin.com/in/eilam-cohen/" target="_blank">🔗 linkedin.com/in/eilam-cohen</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">Work Experience</h2>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Monetization Manager</div>
+                        <div class="job-period">2024 - 2025</div>
+                    </div>
+                    <div class="job-company">Playtika</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Working to achieve the game's business KPIs through data-driven decisions</li>
+                            <li>Worked with analytics, product, economy and design teams to define the right experience for each player segment and ensure clear, engaging monetization flows</li>
+                            <li>Reviewed player behavior and segment performance to identify trends, understand issues, and suggest adjustments when needed</li>
+                            <li>Used creativity, analytical thinking, and teamwork to craft meaningful player experiences</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Marketing & Metaverse Operations Manager</div>
+                        <div class="job-period">2021 - 2023</div>
+                    </div>
+                    <div class="job-company">Meta</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Worked closely with vertical leads to organize events, campaigns, programs, training and content for the Israeli startup ecosystem</li>
+                            <li>A-Z planning and executing customer facing meetings & events; From conceptualization to KPI measurements</li>
+                            <li>Worked in collaboration with Meta branches in EMEA to launch cross-regional programs</li>
+                            <li>Responsible for the purchase, implementation and operation of VR devices in the Israeli site</li>
+                            <li>Led the company's efforts in Israel to execute the Metaverse vision while collaborating with key stakeholders from the fields of development, product, policy, marketing and the ecosystem</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Head of the Culture Department</div>
+                        <div class="job-period">2020 - 2021</div>
+                    </div>
+                    <div class="job-company">Ben-Gurion Students Union</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Managing a large staff of 20 employees</li>
+                            <li>Managed a budget of over 2 million shekels</li>
+                            <li>Building, executing, and supervising a yearly work plan</li>
+                            <li>Planning and executing Student Union projects</li>
+                            <li>Managing Student Union productions for over 25,000 students</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Deputy Head of Culture & Productions Manager</div>
+                        <div class="job-period">2019 - 2020</div>
+                    </div>
+                    <div class="job-company">Ben-Gurion Students Union</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Responsible for planning and executing Student Union events in the University</li>
+                            <li>Building a yearly work plan</li>
+                            <li>Responsible for the productions and event's budgeting</li>
+                            <li>Handled contract negotiations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <div class="job-header">
+                        <div class="education-degree">BA Business Management</div>
+                        <div class="job-period">2018 - 2021</div>
+                    </div>
+                    <div class="education-school">Ben-Gurion University</div>
+                    <div class="education-details">
+                        Specializing in Marketing<br>
+                        Studied an array of different courses in: Economics, Accounting, Marketing and Organizational Management
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Military Service</h2>
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Combat Service Support, Intelligence</div>
+                        <div class="job-period">2012 - 2016</div>
+                    </div>
+                    <div class="job-description">
+                        Served in a special force of the intelligence
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Languages & Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-label">Hebrew</div>
+                        <div class="skill-value">Native tongue</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-label">English</div>
+                        <div class="skill-value">Fluent</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Volunteer Work</h2>
+                <div class="volunteer-box">
+                    <div class="volunteer-period">2011 - 2012</div>
+                    <div class="volunteer-description">
+                        <strong>Year of Service at "Ben Shemen" youth village</strong><br>
+                        Supported youth at risk with agricultural labor
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
